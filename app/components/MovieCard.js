@@ -8,18 +8,18 @@ const MovieCard = () => {
   const movieData = Api();
   return (
     <>
-      <ul>
-        {movieData.map((movie) => {
-          return (
-            <li key={movie.trackId}>
-              <Image src={movie.artworkUrl100} alt={movie.trackName} width={100} height={100} />
-              <h2>{movie.trackName}</h2>
-              <p>{movie.longDescription}</p>
-            </li>
-          )
-        }
-        )}
-      </ul>
+
+      {movieData.map((movie) => {
+        return (
+          <div key={movie.trackId} className='flex flex-col items-center border-2 border-black p-2 text-white rounded-lg'>
+            <Image src={movie.artworkUrl100} alt={movie.trackName} width={200} height={200}
+              className='w-full' />
+            <h2>{movie.trackName}</h2>
+          </div>
+        )
+      }
+      )}
+
     </>
   )
 }

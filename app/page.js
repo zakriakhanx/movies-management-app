@@ -1,13 +1,14 @@
 'use client'
 
 import React from "react";
-import MovieCard from "./components/MovieCard";
+import SearchBar from "./components/SearchBar";
+import MovieGrid from "./components/MovieGrid";
 
 export default function Home() {
   return (
     <>
-      <h1>Home</h1>
-      <MovieCard />
+      <SearchBar/>
+      <MovieGrid/>
     </>
   );
 }

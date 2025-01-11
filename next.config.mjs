@@ -2,7 +2,7 @@
 const nextConfig = {
 
     images: {
-    domains: ['is1-ssl.mzstatic.com'],
+    domains: ['is1-ssl.mzstatic.com', 'assets.nflxext.com'],
   },
   
 };
