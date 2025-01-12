@@ -17,7 +17,7 @@ export const FavoritesProvider = ({ children }) => {
   };
 
   const isFavorite = (movieId) => {
-    console.log(favorites);
+    console.log('Favorites',favorites);
     return(favorites.some((id) => id === movieId))
   };
 

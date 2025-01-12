@@ -15,7 +15,7 @@ const Page = ({ params }) => {
 
   const movieData = useMovies();
 
-  const { addFavorite, removeFavorite, isFavorite } = useContext(FavoritesContext)
+  const { addFavorite, removeFavorite, isFavorite } = useContext(FavoritesContext);
 
   return (
     <>

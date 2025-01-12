@@ -1,11 +1,30 @@
-import React from 'react'
+'use client';
 
-const page = () => {
-  return (
-    <div>
-      <h1>hello favorite</h1>
-    </div>
-  )
-}
+import React, { useContext } from 'react';
+import { FavoritesContext } from "@/app/contextAPI/FavoritesContext";
+import { useMovies } from "@/app/contextAPI/MoviesContext";
 
-export default page
+const Page = () => {
+  const { favorites } = useContext(FavoritesContext);
+  const movieData = useMovies();
+
+  const favoriteMovies = movieData.filter((movie) =>
+    favorites.includes(String(movie.trackId))
+  );
+  
+  console.log("Favorite Movies:", favoriteMovies);
+
+  if (favoriteMovies.length > 0) {
+    return (
+      <>
+        {favoriteMovies.map((movie) => (
+          <div key={movie.trackId}>{movie.trackName}</div>
+        ))}
+      </>
+    );
+  } else {
+    return <div>No favorite movies found</div>;
+  }
+};
+
+export default Page;
