@@ -1,11 +1,13 @@
 'use client'
-import { use, useRef } from "react"
+import { use, useEffect, useRef } from "react"
 import React from 'react'
 import { useMovies } from "@/app/contextAPI/MoviesContext";
 import Image from 'next/image'
 import Link from 'next/link'
 import ReactPlayer from 'react-player'
 import { useState } from "react";
+import { FavoritesContext } from "@/app/contextAPI/FavoritesContext";
+import { useContext } from "react";
 
 const Page = ({ params }) => {
 
@@ -13,17 +15,7 @@ const Page = ({ params }) => {
 
   const movieData = useMovies();
 
-  const [isFavorite, setIsFavorite] = useState(false);
-  const [favorite, setFavorite] = useState([]);
-  const imageRef = useRef(null);
-
-  const handleToggle = () => {
-    setIsFavorite((prevState) => !prevState);
-    if(isFavorite){
-      console.log("Removed from favorites");}
-    console.log(imageRef.current.id);
-
-  };
+  const { addFavorite, removeFavorite, isFavorite } = useContext(FavoritesContext)
 
   return (
     <>
@@ -46,7 +38,13 @@ const Page = ({ params }) => {
                 <div className="w-1/5">
 
                   <div className="mb-5 flex items-center" >
-                    <Image src={isFavorite ? "/favoriteFilled.svg" : "/favorite.svg"} id={movie.trackId} alt={movie.trackId} width={30} height={30} onClick={handleToggle} className="cursor-pointer" ref={imageRef} />
+                    <Image 
+                    src={isFavorite(param.id) ? "/favoriteFilled.svg" : "/favorite.svg"}
+                    alt='favIcon'
+                    width={30}
+                    height={30}
+                    className="cursor-pointer"
+                    onClick={() => (isFavorite(param.id) ? removeFavorite(param.id) : addFavorite(param.id))} />
                     <h1 className="mx-2 cursor-default">Favorite</h1>
                   </div>
 
