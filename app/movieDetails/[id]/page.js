@@ -8,6 +8,8 @@ import ReactPlayer from 'react-player'
 import { useState } from "react";
 import { FavoritesContext } from "@/app/contextAPI/FavoritesContext";
 import { useContext } from "react";
+import { ExclamationCircleIcon } from '@heroicons/react/24/solid';
+
 
 const Page = ({ params }) => {
 
@@ -16,6 +18,7 @@ const Page = ({ params }) => {
   const movieData = useMovies();
 
   const { addFavorite, removeFavorite, isFavorite } = useContext(FavoritesContext);
+  const [hasError, setHasError] = useState(false);
 
   return (
     <>
@@ -25,7 +28,28 @@ const Page = ({ params }) => {
             <div key={movie.trackId} className='flex flex-col bg-background p-5 h-full min-h-screen'>
 
               <div className="bg-black flex justify-center items-center w-auto h-[40vh]">
-                <ReactPlayer url={movie.previewUrl} width='100%' height='100%' controls={true} playing={false} />
+                {!hasError ? (
+                  <ReactPlayer
+                    url={movie.previewUrl}
+                    width="100%"
+                    height="100%"
+                    controls={true}
+                    playing={false}
+                    onError={() => setHasError(true)}
+                  />
+                ) : (
+                  <div className="flex flex-col items-center justify-center text-white">
+                    <ExclamationCircleIcon className="h-10 w-10 text-red-500" />
+
+                    <p className="text-lg text-gray-400">Unable to load the video.</p>
+                    <button
+                      className="mt-4 bg-gray-700 text-white py-2 px-4 rounded hover:bg-gray-600"
+                      onClick={() => window.location.reload()}
+                    >
+                      Retry
+                    </button>
+                  </div>
+                )}
               </div>
 
               <div className="flex justify-around px-5 py-10 h-full cursor-default text-textPrimary">
