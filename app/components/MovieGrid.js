@@ -1,10 +1,10 @@
 import React from 'react'
 import MovieCard from './MovieCard'
-import { useMovies } from '../contextAPI/MoviesContext'
+// import { useMovies } from '../contextAPI/MoviesContext'
 
-const MovieGrid = () => {
+const MovieGrid = ({movieData}) => {
 
-    const movieData = useMovies();
+    // const movieData = useMovies();
 
     return (
         <div className=" bg-white w-full h-auto p-10 flex justify-center items-center">
