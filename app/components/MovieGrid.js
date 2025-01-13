@@ -17,6 +17,7 @@ const MovieGrid = ({movieData}) => {
                      trackId={movie.trackId}
                      artwork={movie.artworkUrl100}
                      trackName={movie.trackName}
+                     genre={movie.primaryGenreName}
                       />
                     )
                 }
