@@ -18,7 +18,7 @@ const Page = () => {
 
   if (favoriteMovies.length > 0) {
     return (
-      <div className="flex flex-col gap-5 bg-gray-300 p-5 min-h-screen">
+      <div className="flex flex-col gap-5 bg-white p-5 min-h-screen">
         {favoriteMovies.map((movie) => (
           <div
             key={movie.trackId}
@@ -59,7 +59,7 @@ const Page = () => {
       </div>
     );
   } else {
-    return <div className='flex flex-col gap-5 bg-gray-300 p-5 min-h-screen'>
+    return <div className='flex flex-col gap-5 bg-white p-5 min-h-screen'>
       <div
             className="flex items-center justify-center border-2 border-black p-5 bg-gray-800 text-white rounded-lg shadow w-full"
           >

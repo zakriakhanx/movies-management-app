@@ -22,7 +22,7 @@ const Page = ({ params }) => {
       {movieData.map((movie) => {
         if (movie.trackId == param.id) {
           return (
-            <div key={movie.trackId} className='flex flex-col bg-gray-300 p-5 h-full min-h-screen'>
+            <div key={movie.trackId} className='flex flex-col bg-white p-5 h-full min-h-screen'>
 
               <div className="bg-black flex justify-center items-center w-auto h-[40vh]">
                 <ReactPlayer url={movie.previewUrl} width='100%' height='100%' controls={true} playing={false} />
