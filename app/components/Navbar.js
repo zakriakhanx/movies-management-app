@@ -7,7 +7,7 @@ import DarkModeToggle from './DarkModeToggle'
 const Navbar = () => {
     return (
         <>
-            <div className='relative flex justify-around items-center h-16 bg-background sticky top-0 z-10 text-textPrimary' >
+            <div className='flex justify-around items-center h-16 bg-background sticky top-0 z-10 text-textPrimary' >
 
                 <div>
                     <Link href="/" className="flex items-center">
