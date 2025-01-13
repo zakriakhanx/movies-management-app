@@ -12,3 +12,28 @@
 .shadow{
     box-shadow: 0px 0px 20px black;
 }
+
+:root {
+    /* Light Mode */
+    --color-primary: #E63946;
+    --color-secondary: #457B9D;
+    --color-background: #F1FAEE;
+    --color-surface: #FFFFFF;
+    --color-text-primary: #1D3557;
+    --color-text-secondary: #6D6875;
+    --color-accent: #F4A261;
+    --color-border: #E5E5E5;
+  }
+  
+.dark {
+    /* Dark Mode */
+    --color-primary: #E63946;
+    --color-secondary: #457B9D;
+    --color-background: #1A1B2F;
+    --color-surface: #25273E;
+    --color-text-primary: #F1FAEE;
+    --color-text-secondary: #A8A9C4;
+    --color-accent: #F4A261;
+    --color-border: #3C3F5F;
+  }
+  

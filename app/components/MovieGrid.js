@@ -7,7 +7,7 @@ const MovieGrid = ({movieData}) => {
     // const movieData = useMovies();
 
     return (
-        <div className=" bg-white w-full h-auto p-10 flex justify-center items-center">
+        <div className=" bg-background w-full h-auto p-10 flex justify-center items-center">
             <div className='grid grid-cols-4 gap-16 w-[80vw]'>
 
                 {movieData.map((movie) => {

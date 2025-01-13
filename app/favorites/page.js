@@ -18,11 +18,11 @@ const Page = () => {
 
   if (favoriteMovies.length > 0) {
     return (
-      <div className="flex flex-col gap-5 bg-white p-5 min-h-screen">
+      <div className="flex flex-col gap-5 bg-background p-5 min-h-screen">
         {favoriteMovies.map((movie) => (
           <div
             key={movie.trackId}
-            className="flex items-center justify-between gap-5 border-2 border-black p-5 bg-gray-800 text-white rounded-lg shadow w-full"
+            className="flex items-center justify-between gap-5 border-2 border-border p-5 bg-surface text-textPrimary rounded-lg shadow w-full"
           >
             <div className='flex items-start gap-5'>
               <div className='h-[20vh]'>
@@ -39,7 +39,7 @@ const Page = () => {
 
               <div className='flex flex-col justify-evenly items-start w-[50%] h-[20vh] overflow-hidden'>
                 <p className="text-lg">{movie.trackName}</p>
-                <p className='text-sm'>{movie.shortDescription}</p>
+                <p className='text-sm text-textPrimary'>{movie.shortDescription}</p>
               </div>
             </div>
 
@@ -59,9 +59,9 @@ const Page = () => {
       </div>
     );
   } else {
-    return <div className='flex flex-col gap-5 bg-white p-5 min-h-screen'>
+    return <div className='flex flex-col gap-5 bg-background p-5 min-h-screen'>
       <div
-            className="flex items-center justify-center border-2 border-black p-5 bg-gray-800 text-white rounded-lg shadow w-full"
+            className="flex items-center justify-center border-2 border-border p-5 bg-background text-textPrimary rounded-lg shadow w-full"
           >
             <p>No favorite movies found. Please add some to your favorites list.</p>
           </div>

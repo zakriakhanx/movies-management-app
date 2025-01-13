@@ -8,22 +8,20 @@ export default function DarkModeToggle() {
     setIsDarkMode(!isDarkMode);
     if (isDarkMode) {
       document.documentElement.classList.remove('dark');
-      localStorage.setItem('theme', 'light');
     } else {
       document.documentElement.classList.add('dark');
-      localStorage.setItem('theme', 'dark');
     }
   };
 
   return (
     <button
       onClick={toggleDarkMode}
-      className="flex items-center justify-center p-2 rounded-full bg-gray-200 dark:bg-gray-800 transition duration-200"
+      className="flex items-center justify-center p-2 rounded-full"
     >
       {isDarkMode ? (
         <SunIcon className="h-6 w-6 text-yellow-500" />
       ) : (
-        <MoonIcon className="h-6 w-6 text-gray-700 dark:text-gray-300" />
+        <MoonIcon className="h-6 w-6 text-gray-700" />
       )}
     </button>
   );

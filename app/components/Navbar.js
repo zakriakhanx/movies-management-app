@@ -7,11 +7,11 @@ import DarkModeToggle from './DarkModeToggle'
 const Navbar = () => {
     return (
         <>
-            <div className='flex justify-around items-center h-16 bg-gray-400 sticky top-0 z-10' >
+            <div className='flex justify-around items-center h-16 bg-background sticky top-0 z-10 text-textPrimary' >
 
                 <div>
                     <Link href="/" className="flex items-center">
-                        <h1>Home</h1>
+                        <button className='bg-primary active:bg-secondary border-border border-[1px] w-20 h-10 rounded-md text-md text-textPrimary'>Home</button>
                     </Link>
                 </div>
 
@@ -22,7 +22,7 @@ const Navbar = () => {
                 <div className='flex gap-5'>
                     <div>
                         <Link href="/favorites" className="flex items-center">
-                            <HeartIcon className="h-10 w-10 text-red-500" />
+                            <HeartIcon className="h-10 w-10 text-primary active:text-secondary" />
                             <span>Favorites</span>
                         </Link>
                     </div>
