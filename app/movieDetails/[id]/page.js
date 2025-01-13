@@ -38,13 +38,13 @@ const Page = ({ params }) => {
                 <div className="w-1/5">
 
                   <div className="mb-5 flex items-center" >
-                    <Image 
-                    src={isFavorite(param.id) ? "/favoriteFilled.svg" : "/favorite.svg"}
-                    alt='favIcon'
-                    width={30}
-                    height={30}
-                    className="cursor-pointer"
-                    onClick={() => (isFavorite(param.id) ? removeFavorite(param.id) : addFavorite(param.id))} />
+                    <Image
+                      src={isFavorite(param.id) ? "/favoriteFilled.svg" : "/favorite.svg"}
+                      alt='favIcon'
+                      width={30}
+                      height={30}
+                      className="cursor-pointer"
+                      onClick={() => (isFavorite(param.id) ? removeFavorite(param.id) : addFavorite(param.id))} />
                     <h1 className="mx-2 cursor-default">Favorite</h1>
                   </div>
 
@@ -55,7 +55,30 @@ const Page = ({ params }) => {
                     <h1>Price: ${movie.trackPrice}</h1>
                   </div>
                 </div>
+              </div>
 
+              <div className="w-full h-1 bg-border"></div>
+
+              <div className="bg-background w-full h-auto p-10 flex flex-col justify-center">
+                <h1 className="text-3xl mb-10 text-textPrimary">Related Movies</h1>
+                <div className="grid grid-cols-4 gap-16 w-full">
+                  {
+                    movieData.map((movie2) => {
+                      if (movie2.primaryGenreName === movie.primaryGenreName) {
+                        return (
+                          <Link key={movie2.trackId} href={`/movieDetails/${movie2.trackId}`}>
+                            <div className='flex flex-col items-center border-2 border-border p-2 text-textPrimary rounded-lg bg-surface shadow h-[100%]'>
+                              <Image src={movie2.artworkUrl100} alt={movie2.trackName} width={200} height={200}
+                                className='w-full' />
+                              <p className='text-textSecondary text-sm m-2'>{movie2.primaryGenreName}</p>
+                              <h2>{movie2.trackName}</h2>
+                            </div>
+                          </Link>
+                        )
+                      }
+                    })
+                  }
+                </div>
               </div>
 
             </div>

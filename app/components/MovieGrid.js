@@ -1,14 +1,12 @@
 import React from 'react'
 import MovieCard from './MovieCard'
-// import { useMovies } from '../contextAPI/MoviesContext'
 
 const MovieGrid = ({movieData}) => {
 
-    // const movieData = useMovies();
-
     return (
-        <div className=" bg-background w-full h-auto p-10 flex justify-center items-center">
-            <div className='grid grid-cols-4 gap-16 w-[80vw]'>
+        <div className="relative bg-background w-full h-auto p-10 flex justify-center items-center">
+            <div className="absolute top-0 w-full h-1 bg-border"></div>
+            <div className='grid grid-cols-4 gap-16 w-full'>
 
                 {movieData.map((movie) => {
                     return (
