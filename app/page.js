@@ -19,7 +19,9 @@ export default function Home() {
   return (
     <>
       <SearchBar />
+      
       <MovieGrid movieData={currentMovies} />
+
       <Pagination
         totalMovies={movieData.length}
         moviesPerPage={moviesPerPage}

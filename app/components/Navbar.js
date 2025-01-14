@@ -11,7 +11,8 @@ const Navbar = () => {
 
                 <div>
                     <Link href="/" className="flex items-center">
-                        <button className='bg-primary active:bg-secondary border-border border-[1px] w-20 h-10 rounded-md text-md text-textPrimary'>Home</button>
+                        <button className='bg-primary active:bg-secondary border-border border-[1px] w-20 h-10 rounded-md text-md text-textPrimary'>
+                            Home</button>
                     </Link>
                 </div>
 
@@ -26,7 +27,8 @@ const Navbar = () => {
                             <span className='text-xs'>Favorites</span>
                         </Link>
                     </div>
-                    <div><DarkModeToggle /></div>
+
+                    <div><DarkModeToggle /></div>   
                 </div>
 
                 <div className="absolute bottom-0 w-full h-1 bg-border"></div>

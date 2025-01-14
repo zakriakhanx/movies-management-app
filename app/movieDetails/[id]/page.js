@@ -1,5 +1,5 @@
 'use client'
-import { use, useEffect, useRef } from "react"
+import { use } from "react"
 import React from 'react'
 import { useMovies } from "@/app/contextAPI/MoviesContext";
 import Image from 'next/image'

@@ -1,5 +1,4 @@
 'use client';
-
 import React, { useContext } from 'react';
 import { FavoritesContext } from "@/app/contextAPI/FavoritesContext";
 import { useMovies } from "@/app/contextAPI/MoviesContext";
@@ -19,6 +18,7 @@ const Page = () => {
   if (favoriteMovies.length > 0) {
     return (
       <div className="flex flex-col gap-5 bg-background p-5 min-h-screen">
+
         {favoriteMovies.map((movie) => (
           <div
             key={movie.trackId}
@@ -26,6 +26,7 @@ const Page = () => {
           >
             <div className='flex items-start gap-5'>
               <div className='h-[20vh]'>
+                
                 <Link href={`/movieDetails/${movie.trackId}`}>
                   <Image
                     src={movie.artworkUrl100}
@@ -35,12 +36,14 @@ const Page = () => {
                     className="rounded-lg h-full w-auto"
                   />
                 </Link>
+
               </div>
 
               <div className='flex flex-col justify-evenly items-start w-[50%] h-[20vh] overflow-hidden'>
                 <p className="text-sm sm:text-lg font-semibold">{movie.trackName}</p>
                 <p className='text-xs sm:text-sm text-textSecondary'>{movie.shortDescription}</p>
               </div>
+              
             </div>
 
             <div className="flex flex-col items-center justify-center w-[20%]" >

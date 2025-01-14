@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { MoonIcon, SunIcon } from '@heroicons/react/24/solid';
 
 export default function DarkModeToggle() {
