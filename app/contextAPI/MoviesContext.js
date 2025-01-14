@@ -10,15 +10,12 @@ export const MoviesProvider = ({ children }) => {
     // State to hold the fetched movie data
     const [movieData, setMovieData] = useState([])
 
-    // API endpoint to fetch movie data
-    const API = 'https://itunes.apple.com/search?term=star&country=au&media=movie&all'
-
     // Function to fetch movie data from the API
     const getMovieData = async () => {
 
         try {
             // Making a GET request to the API
-            const res = await axios.get(API)
+            const res = await axios.get('/api/itunes/search?term=star&country=au&media=movie&all')
             setMovieData(res.data.results)
             console.log(res.data.results)
         } catch (error) {

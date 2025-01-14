@@ -5,27 +5,14 @@ const nextConfig = {
     domains: ['is1-ssl.mzstatic.com', 'assets.nflxext.com'],
   },
 
-  async headers() {
+  async rewrites() {
     return [
-      {
-        source: '/:path*',
-        headers: [
-          {
-            key: 'Access-Control-Allow-Origin',
-            value: '*',
-          },
-          {
-            key: 'Access-Control-Allow-Methods',
-            value: 'GET, POST, PUT, DELETE, OPTIONS',
-          },
-          {
-            key: 'Access-Control-Allow-Headers',
-            value: 'Content-Type, Authorization',
-          },
-        ],
-      },
+        {
+            source: '/api/itunes/:path*', // Proxy endpoint
+            destination: 'https://itunes.apple.com/:path*', // Target iTunes API
+        },
     ];
-  },
+},
   
 };
 
