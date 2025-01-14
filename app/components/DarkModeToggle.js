@@ -16,12 +16,12 @@ export default function DarkModeToggle() {
   return (
     <button
       onClick={toggleDarkMode}
-      className="flex items-center justify-center p-2 rounded-full"
+      className="flex items-center justify-center p-2 rounded-full dark:bg-gray-700 bg-gray-500"
     >
       {isDarkMode ? (
         <SunIcon className="h-6 w-6 text-yellow-500" />
       ) : (
-        <MoonIcon className="h-6 w-6 text-gray-700" />
+        <MoonIcon className="h-6 w-6 text-yellow-500" />
       )}
     </button>
   );

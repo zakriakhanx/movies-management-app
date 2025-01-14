@@ -38,8 +38,8 @@ const Page = () => {
               </div>
 
               <div className='flex flex-col justify-evenly items-start w-[50%] h-[20vh] overflow-hidden'>
-                <p className="text-lg">{movie.trackName}</p>
-                <p className='text-sm text-textPrimary'>{movie.shortDescription}</p>
+                <p className="text-sm sm:text-lg font-semibold">{movie.trackName}</p>
+                <p className='text-xs sm:text-sm text-textPrimary'>{movie.shortDescription}</p>
               </div>
             </div>
 

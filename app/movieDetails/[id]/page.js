@@ -55,11 +55,11 @@ const Page = ({ params }) => {
               <div className="flex justify-around px-5 py-10 h-full cursor-default text-textPrimary">
 
                 <div className="w-1/2">
-                  <h1 className="text-4xl mb-5">{movie.trackName}</h1>
+                  <h1 className="text-4xl mb-5 sm:font-semibold">{movie.trackName}</h1>
                   <p className="text-textSecondary">{movie.longDescription}</p>
                 </div>
 
-                <div className="w-1/5">
+                <div className="w-1/3 sm:w-1/5">
 
                   <div className="mb-5 flex items-center" >
                     <Image
@@ -84,8 +84,8 @@ const Page = ({ params }) => {
               <div className="w-full h-1 bg-border"></div>
 
               <div className="bg-background w-full h-auto p-10 flex flex-col justify-center">
-                <h1 className="text-3xl mb-10 text-textPrimary">Related Movies</h1>
-                <div className="grid grid-cols-4 gap-16 w-full">
+                <h1 className="text-xl sm:text-3xl mb-10 text-textPrimary">Related Movies</h1>
+                <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-16 w-full">
                   {
                     movieData.map((movie2) => {
                       if (movie2.primaryGenreName === movie.primaryGenreName) {

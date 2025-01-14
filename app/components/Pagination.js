@@ -12,7 +12,7 @@ const Pagination = ({ totalMovies, moviesPerPage, setCurrentPage, currentPage })
       {
         pages.map((page, index) => {
           return <button
-            className={`h-10 w-10 bg-primary text-textPrimary m-5 ${page == currentPage ? 'bg-accent text-black' : ''}`}
+            className={`h-10 w-10 bg-primary text-textPrimary dark:text-[#1D3557] m-2 sm:m-5 ${page == currentPage ? 'bg-[#F4A261]' : ''}`}
             key={index}
             onClick={() => setCurrentPage(page)}>{page}</button>
         })
