@@ -39,11 +39,11 @@ const Page = () => {
 
               <div className='flex flex-col justify-evenly items-start w-[50%] h-[20vh] overflow-hidden'>
                 <p className="text-sm sm:text-lg font-semibold">{movie.trackName}</p>
-                <p className='text-xs sm:text-sm text-textPrimary'>{movie.shortDescription}</p>
+                <p className='text-xs sm:text-sm text-textSecondary'>{movie.shortDescription}</p>
               </div>
             </div>
 
-            <div className="flex items-center justify-center w-[20%]" >
+            <div className="flex flex-col items-center justify-center w-[20%]" >
               <Image
                 src={isFavorite(String(movie.trackId)) ? "/favoriteFilled.svg" : "/favorite.svg"}
                 alt='favIcon'

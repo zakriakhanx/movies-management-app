@@ -54,7 +54,7 @@ const Page = ({ params }) => {
 
               <div className="flex justify-around px-5 py-10 h-full cursor-default text-textPrimary">
 
-                <div className="w-1/2">
+                <div className="w-1/2 break-words">
                   <h1 className="text-4xl mb-5 sm:font-semibold">{movie.trackName}</h1>
                   <p className="text-textSecondary">{movie.longDescription}</p>
                 </div>
@@ -72,11 +72,11 @@ const Page = ({ params }) => {
                     <h1 className="mx-2 cursor-default">Favorite</h1>
                   </div>
 
-                  <div className="cursor-default">
-                    <h1>Director: {movie.artistName}</h1>
-                    <h1>Genre: {movie.primaryGenreName}</h1>
-                    <h1>ReleaseDate: {movie.releaseDate.split("T")[0]}</h1>
-                    <h1>Price: ${movie.trackPrice}</h1>
+                  <div className="cursor-default text-textSecondary">
+                    <h1 className="mb-2">Director: {movie.artistName}</h1>
+                    <h1 className="mb-2">Genre: {movie.primaryGenreName}</h1>
+                    <h1 className="mb-2">ReleaseDate: {movie.releaseDate.split("T")[0]}</h1>
+                    <h1 className="mb-2">Price: ${movie.trackPrice}</h1>
                   </div>
                 </div>
               </div>

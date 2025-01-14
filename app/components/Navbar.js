@@ -15,15 +15,15 @@ const Navbar = () => {
                     </Link>
                 </div>
 
-                <div className='sm:font-semibold text-xs text-center min-w-20 p-2 sm:text-lg'>
+                <div className='font-semibold text-xs text-center min-w-20 p-2 sm:text-lg'>
                     <h2>Movie Management App</h2>
                 </div>
 
-                <div className='flex gap-1 sm:gap-5'>
+                <div className='flex gap-2 sm:gap-5'>
                     <div>
-                        <Link href="/favorites" className="flex items-center">
-                            <HeartIcon className="h-10 w-10 text-primary active:text-secondary" />
-                            <span>Favorites</span>
+                        <Link href="/favorites" className="flex flex-col items-center">
+                            <HeartIcon className="h-8 w-8 text-primary active:text-secondary" />
+                            <span className='text-xs'>Favorites</span>
                         </Link>
                     </div>
                     <div><DarkModeToggle /></div>
