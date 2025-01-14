@@ -112,7 +112,7 @@ const Page = ({ params }) => {
                             <div className='flex flex-col items-center border-2 border-border p-2 text-textPrimary rounded-lg bg-surface shadow h-[100%]'>
                               <Image src={movie2.artworkUrl100} alt={movie2.trackName} width={200} height={200}
                                 className='w-full' />
-                              <p className='text-textSecondary text-sm m-2'>{movie2.primaryGenreName}</p>
+                              <p className='text-textSecondary text-xs sm:text-base m-2'>{movie2.primaryGenreName}</p>
                               <h2 className="text-xs sm:text-base">{movie2.trackName}</h2>
                             </div>
                           </Link>

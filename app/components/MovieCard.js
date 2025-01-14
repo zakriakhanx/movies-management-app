@@ -22,7 +22,7 @@ const MovieCard = ({ trackId, trackName, artwork, genre }) => {
           className='w-full' />
 
         {/* Display the genre of the movie below the artwork */}
-        <p className='text-textSecondary text-sm m-2'>{genre}</p>
+        <p className='text-textSecondary text-xs sm:text-base m-2'>{genre}</p>
 
         {/* Display the movie Name below the genre */}
         <h2 className='text-xs sm:text-base'>{trackName}</h2>
