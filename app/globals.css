@@ -14,26 +14,25 @@
 }
 
 :root {
-    /* Light Mode */
-    --color-primary: #E63946;
-    --color-secondary: #457B9D;
-    --color-background: #F1FAEE;
-    --color-surface: #FFFFFF;
-    --color-text-primary: #1D3557;
-    --color-text-secondary: #6D6875;
-    --color-accent: #F4A261;
-    --color-border: #E5E5E5;
-  }
-  
+  /* Light Mode Colors */
+  --color-primary: #E63946; /* Main color used for key elements like buttons, links, etc. */
+  --color-secondary: #457B9D; /* Secondary color used for less prominent elements */
+  --color-background: #F1FAEE; /* Light background color for general areas */
+  --color-surface: #FFFFFF; /* Color for surfaces like cards or sections */
+  --color-text-primary: #1D3557; /* Primary text color for readability */
+  --color-text-secondary: #6D6875; /* Secondary text color for less important text */
+  --color-accent: #F4A261; /* Accent color used for highlighting elements */
+  --color-border: #E5E5E5; /* Border color for dividers or boundaries */
+}
+
 .dark {
-    /* Dark Mode */
-    --color-primary: #E63946;
-    --color-secondary: #457B9D;
-    --color-background: #1A1B2F;
-    --color-surface: #25273E;
-    --color-text-primary: #F1FAEE;
-    --color-text-secondary: #A8A9C4;
-    --color-accent: #F4A261;
-    --color-border: #3C3F5F;
-  }
-  
+  /* Dark Mode Colors */
+  --color-primary: #E63946; /* Main color used for key elements like buttons, links, etc. (unchanged from light mode) */
+  --color-secondary: #457B9D; /* Secondary color (unchanged from light mode) */
+  --color-background: #1A1B2F; /* Dark background color for dark mode */
+  --color-surface: #25273E; /* Dark surface color for sections or cards */
+  --color-text-primary: #F1FAEE; /* Light text color for better visibility on dark background */
+  --color-text-secondary: #A8A9C4; /* Lighter secondary text color for less important content */
+  --color-accent: #F4A261; /* Accent color (unchanged from light mode) */
+  --color-border: #3C3F5F; /* Darker border color for dark mode */
+}

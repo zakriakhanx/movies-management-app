@@ -9,6 +9,10 @@ export default {
   theme: {
     extend: {
       colors: {
+
+        // Defining the color palette using CSS variables.
+        // These variables will allow you to dynamically switch between light and dark mode based on the root :root and .dark class.
+        
         primary: 'var(--color-primary)',
         secondary: 'var(--color-secondary)',
         background: 'var(--color-background)',
