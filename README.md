@@ -1,97 +1,91 @@
-# Movies Management App
+# 🎬 Movies Management App
 
-A responsive Next.js application that allows users to browse movies, search for specific titles, view details, and manage their favorite movies. The app fetches movie data from the iTunes Search API and provides features like dynamic routing, context-based state management, and responsive design.
+A **user-friendly movie management app** built with **Next.js** and **Tailwind CSS**, allowing users to **discover, search, and manage their favorite movies**. The app fetches movies from the iTunes API, provides a dark mode, and supports **favorites management**.
 
-## Features
+## 🚀 Features
 
-- Search Functionality: Search for movies by title using the search bar.
-- Favorites Management: Add/remove movies to/from favorites and view them on a dedicated screen.
-- Movie Details: View detailed information about a movie, including title, genre, release date, and more.
-- Dark Mode: Toggle between light and dark themes.
-- Pagination for efficient navigation through movie listings.
+- 🔍 **Search Movies**: Easily find movies by their names.
+- ⭐ **Favorite Movies**: Save and manage your favorite movies.
+- 🌙 **Dark Mode**: Toggle between light and dark themes.
+- 📄 **Movie Details**: View detailed information about each movie.
+- 🎥 **Movie Previews**: Watch trailers and previews.
+- 🔄 **Pagination**: Browse through movies efficiently.
 
-## Tech Stack
+## 🏗️ Tech Stack
 
-- **React**: Front-end library to build the user interface.
-- **Next.js**: React framework for building server-side rendered applications.
-- **Tailwind CSS**: Utility-first CSS framework for fast and responsive design.
-- **Axios**: Promise-based HTTP client for making API requests.
-- **React Player**: Component to display movie previews and trailers.
-- **Context API**: To manage global state (e.g., favorite movies).
+- **Next.js**: Server-side rendering and optimized performance.
+- **Tailwind CSS**: Responsive and modern UI styling.
+- **React Context API**: State management for movies and favorites.
+- **Axios**: Fetch movie data from the iTunes API.
+- **React Player**: Embedded movie trailers.
 
-# Usage
+## 📂 Project Structure
 
-## Home Screen
+```
+zakriakhanx-movies-management-app/
+│── app/
+│   ├── components/      # Reusable UI components
+│   ├── contextAPI/      # Global state management (Favorites & Movies)
+│   ├── favorites/       # Favorite movies page
+│   ├── movieDetails/    # Movie details pages
+│   ├── globals.css      # Global styles
+│   ├── layout.js        # Main layout with Navbar
+│   ├── page.js          # Home page with search and movie grid
+│── public/              # Static assets
+│── next.config.mjs      # Next.js configuration
+│── tailwind.config.mjs  # Tailwind CSS configuration
+│── package.json         # Dependencies and scripts
+│── .eslint.config.mjs   # ESLint configuration
+```
 
-Displays a list of movies fetched from the iTunes Search API.
+## 🛠️ Installation & Setup
 
-## Search
-
-Search for movies by title using the search bar on the home page.
-
-Results are dynamically updated based on the search query.
-
-## Favorites Management
-
-Mark movies as favorites and access them from the "Favorites" page.
-
-## Movie Details
-
-View detailed information about a movie by clicking on it.
-
-## Dark Mode
-
-Toggle between light and dark themes using a button in the header.
-
-## Getting Started
-
-Follow these instructions to run the project locally on your machine.
-
-### Prerequisites
-
-- Node.js (v14 or higher)
-- npm (v6 or higher) or yarn (v1.22 or higher)
-
-### Installation
-
-1. Clone the repository:
-
+1. **Clone the Repository**  
    ```bash
-   git clone http://repo-Url
-   cd repo-name
+   git clone https://github.com/yourusername/movies-management-app.git
+   cd movies-management-app
    ```
 
-2. Install the dependencies:
+2. **Install Dependencies**  
    ```bash
    npm install
-   # or
-   yarn install
    ```
 
-### Running the Project
-
-1. Start the development server:
-
+3. **Start the Development Server**  
    ```bash
    npm run dev
-   # or
-   yarn dev
+   ```
+   Open [http://localhost:3000](http://localhost:3000) in your browser.
+
+4. **Build for Production**  
+   ```bash
+   npm run build
    ```
 
-2. Open your browser and navigate to `http://localhost:3000` to see the application in action.
+5. **Run the Production Build**  
+   ```bash
+   npm start
+   ```
 
-# Contributing
+## 🛠️ API Integration
 
-Contributions are welcome! To contribute:
+The app fetches movie data from **iTunes API** via a proxy:
+```js
+async rewrites() {
+  return [
+      {
+          source: '/api/itunes/:path*',
+          destination: 'https://itunes.apple.com/:path*',
+      },
+  ];
+}
+```
 
-1. Fork the repository.
+## 🤝 Contributing
 
-2. Create a new branch for your feature:
-   
-    ```bash
-    git checkout -b feature-name
-    ```
-
-3. Commit your changes and push to your fork.
-
-4. Open a pull request.
+1. Fork the repo
+2. Create a new branch (\`git checkout -b feature-branch\`)
+3. Make your changes
+4. Commit your changes (\`git commit -m "Added new feature"\`)
+5. Push the branch (\`git push origin feature-branch\`)
+6. Open a Pull Request
