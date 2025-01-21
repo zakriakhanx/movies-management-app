@@ -3,6 +3,7 @@ import "./globals.css";
 import { MoviesProvider } from "./contextAPI/MoviesContext";
 import { FavoritesProvider } from "./contextAPI/FavoritesContext";
 import Navbar from "./components/Navbar";
+import { SpeedInsights } from "@vercel/speed-insights/next"
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -29,6 +30,7 @@ export default function RootLayout({ children }) {
           <MoviesProvider>
             <Navbar />
             {children}
+            <SpeedInsights/>
           </MoviesProvider>
         </FavoritesProvider>
       </body>
