@@ -1,86 +1,49 @@
-'use client';
-import React, { useContext } from 'react';
-import { FavoritesContext } from "@/app/contextAPI/FavoritesContext";
-import { useMovies } from "@/app/contextAPI/MoviesContext";
-import Image from 'next/image';
-import Link from 'next/link';
+'use client'
+import { useContext, useMemo } from 'react'
+import { FavoritesContext } from "@/app/contextAPI/FavoritesContext"
+import { useMovies } from "@/app/contextAPI/MoviesContext"
+import { FavoriteMovieCard } from "./components/FavoriteMovieCard"
+import { NoFavorites } from "./components/NoFavorites"
 
-const Page = () => {
+const FavoritesPage = () => {
+  const { favorites } = useContext(FavoritesContext)
+  const movieData = useMovies()
 
-  // Destructuring favorite-related functions and state from FavoritesContext
-  const { favorites, addFavorite, removeFavorite, isFavorite } = useContext(FavoritesContext);
+  const favoriteMovies = useMemo(() =>
+    movieData.filter(movie => favorites.includes(`${movie.trackId}`)),
+    [movieData, favorites]
+  )
 
-  // Fetching movie data from the Movies context
-  const movieData = useMovies();
+  return (
+    <main
+      className="flex flex-col gap-5 bg-background p-5 min-h-screen"
+      aria-label="Favorites page"
+    >
+      <h1 className="text-2xl font-bold text-textPrimary">
+        My Favorites
+      </h1>
 
-  // Filtering out the movies that are in the favorites list based on trackId
-  const favoriteMovies = movieData.filter((movie) =>
-    favorites.includes(String(movie.trackId))
-  );
+      {movieData.length === 0 ? (
+        <div className="flex items-center justify-center h-40">
+          <p className="text-textSecondary">Loading movies...</p>
+        </div>
+      ) : favoriteMovies.length > 0 ? (
+        <section
+          className="flex flex-col gap-5"
+          aria-label="Favorite movies list"
+        >
+          {favoriteMovies.map(movie => (
+            <FavoriteMovieCard
+              key={movie.trackId}
+              movie={movie}
+            />
+          ))}
+        </section>
+      ) : (
+        <NoFavorites />
+      )}
+    </main>
+  )
+}
 
-  console.log("Favorite Movies:", favoriteMovies);
-
-  // Checking if there are any favorite movies, and rendering accordingly
-  if (favoriteMovies.length > 0) {
-    return (
-      <div className="flex flex-col gap-5 bg-background p-5 min-h-screen">
-
-        {favoriteMovies.map((movie) => (
-          <div
-            key={movie.trackId}
-            className="flex items-center justify-between gap-5 border-2 border-border p-5 bg-surface text-textPrimary rounded-lg shadow w-full"
-          >
-            <div className='flex items-start gap-5'>
-              <div className='h-[20vh]'>
-                
-                {/* Link to navigate to the movie's details page */}
-                <Link href={`/movieDetails/${movie.trackId}`}>
-                  <Image
-                    src={movie.artworkUrl100}
-                    alt={movie.trackName}
-                    width={100}
-                    height={100}
-                    className="rounded-lg h-full w-auto"
-                  />
-                </Link>
-
-              </div>
-
-              {/* Displaying the movie's name and description */}
-              <div className='flex flex-col justify-evenly items-start w-[50%] h-[20vh] overflow-hidden'>
-                <p className="text-sm sm:text-lg font-semibold">{movie.trackName}</p>
-                <p className='text-xs sm:text-sm text-textSecondary'>{movie.shortDescription}</p>
-              </div>
-
-            </div>
-
-            {/* Displaying the favorite icon (changes based on whether the movie is a favorite) */}
-            <div className="flex flex-col items-center justify-center w-[20%]" >
-              <Image
-                src={isFavorite(String(movie.trackId)) ? "/favoriteFilled.svg" : "/favorite.svg"}
-                alt='favIcon'
-                width={30}
-                height={30}
-                className="cursor-pointer"
-                onClick={() => (isFavorite(String(movie.trackId)) ? removeFavorite(String(movie.trackId)) : addFavorite(String(movie.trackId)))} />
-              <h1 className="mx-2 cursor-default">Favorite</h1>
-            </div>
-
-          </div>
-        ))}
-      </div>
-    );
-  } else {
-    
-    // Message when no favorite movies are found
-    return <div className='flex flex-col gap-5 bg-background p-5 min-h-screen'>
-      <div
-            className="flex items-center justify-center border-2 border-border p-5 bg-background text-textPrimary rounded-lg shadow w-full"
-          >
-            <p>No favorite movies found. Please add some to your favorites list.</p>
-          </div>
-    </div>;
-  }
-};
-
-export default Page;
+export default FavoritesPage
