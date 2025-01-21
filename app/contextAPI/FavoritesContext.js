@@ -1,38 +1,39 @@
 'use client'
-import React, { createContext, useState } from 'react';
+import { createContext, useState, useCallback } from 'react'
 
-// Creating a context for managing favorites globally.
-export const FavoritesContext = createContext(); 
+export const FavoritesContext = createContext()
 
 export const FavoritesProvider = ({ children }) => {
+  const [favorites, setFavorites] = useState([])
 
-  // State for managing the list of favorite movie IDs
-  const [favorites, setFavorites] = useState([]);
+  const addFavorite = useCallback((movieId) => {
+    if (!movieId) return
+    setFavorites(prev => {
+      if (prev.includes(movieId)) return prev
+      return [...prev, movieId]
+    })
+  }, [])
 
-  // Function to add a movie to the favorites list
-  const addFavorite = (movieId) => {
-    setFavorites([...favorites, movieId]);
-    console.log('Added to favorites', favorites);
-  };
+  const removeFavorite = useCallback((movieId) => {
+    if (!movieId) return
+    setFavorites(prev => prev.filter(id => id !== movieId))
+  }, [])
 
-  // Function to remove a movie from the favorites list
-  const removeFavorite = (movieId) => {
-    setFavorites(favorites.filter((id) => id !== movieId));
-    console.log('Removed from favorites', favorites);
-  };
+  const isFavorite = useCallback((movieId) => {
+    if (!movieId) return false
+    return favorites.includes(movieId)
+  }, [favorites])
 
-  // Function to check if a movie is already in the favorites list
-  const isFavorite = (movieId) => {
-    console.log('Favorites',favorites);
-    // Returning true if the movieId exists in the favorites array, else false
-    return(favorites.some((id) => id === movieId))
-  };
-
+  const value = {
+    favorites,
+    addFavorite,
+    removeFavorite,
+    isFavorite
+  }
 
   return (
-    // Providing the context values (favorites array and functions) to the children components
-    <FavoritesContext.Provider value={{ favorites, addFavorite, removeFavorite, isFavorite }}>
+    <FavoritesContext.Provider value={value}>
       {children}
     </FavoritesContext.Provider>
-  );
-};
+  )
+}
