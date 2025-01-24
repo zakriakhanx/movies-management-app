@@ -4,7 +4,7 @@ export const MovieDetails = ({ movie }) => {
   if (!movie) return null
 
   return (
-    <div className="w-1/2 break-words">
+    <div className="w-full px-5 sm:px-10 break-words">
 
       <h1 className="text-4xl mb-5 sm:font-semibold">{movie.trackName}</h1>
       
