@@ -17,7 +17,7 @@ const MovieCard = ({ trackId, trackName, artwork, genre }) => {
     <Link href={`/movieDetails/${trackId}`}>
 
       <div
-        className='flex flex-col items-center border-2 border-border p-2 text-textPrimary rounded-lg bg-surface shadow h-[100%]'>
+        className='flex flex-col items-center border-2 border-border p-2 text-textPrimary rounded-lg bg-surface shadow-2xl dark:shadow-md h-[100%]'>
 
         {/* Display the movie artwork using the Next.js Image component */}
         <Image
