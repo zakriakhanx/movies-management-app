@@ -55,7 +55,6 @@ const MovieDetailsPage = ({ params }) => {
         </aside>
       </div>
 
-      <hr className="w-full h-1 bg-border" />
       <RelatedMovies movies={relatedMovies} />
     </main>
   )

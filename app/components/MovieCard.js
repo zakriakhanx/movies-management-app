@@ -5,6 +5,12 @@ import Link from 'next/link'
 // MovieCard component displays individual movie information
 
 const MovieCard = ({ trackId, trackName, artwork, genre }) => {
+  
+  //Original image is 100x100, we are updating it to 500x500
+  function updateImageUrl(url) {
+    return url.replace(/\/\d+x\d+bb\.jpg$/, '/500x500bb.jpg');
+  }
+  const artwork_url = updateImageUrl(artwork);
 
   return (
     // Wrap the entire card in a Link for navigation to the movie details page
@@ -15,10 +21,10 @@ const MovieCard = ({ trackId, trackName, artwork, genre }) => {
 
         {/* Display the movie artwork using the Next.js Image component */}
         <Image
-          src={artwork}
+          src={artwork_url}
           alt={trackName}
-          width={200}
-          height={200}
+          width={500}
+          height={500}
           className='w-full' />
 
         {/* Display the genre of the movie below the artwork */}
