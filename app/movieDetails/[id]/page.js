@@ -42,7 +42,7 @@ const MovieDetailsPage = ({ params }) => {
       <div className="relative flex px-5 py-10 h-full cursor-default text-textPrimary">
         <MovieDetails movie={currentMovie} />
         
-        <aside className="w-1/3 sm:w-1/5 absolute top-4 right-0">
+        <aside className="absolute top-4 right-7">
           <FavoriteButton 
             movieId={param.id}
             isFavorite={isFavorite(param.id)}
