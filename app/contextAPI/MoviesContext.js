@@ -3,7 +3,7 @@ import { createContext, useContext, useState, useCallback, useEffect } from "rea
 import axios from "axios"
 
 // API endpoint for fetching movie data from iTunes
-const MOVIES_API_URL = '/api/itunes/search?term=star&country=au&media=movie&all'
+const MOVIES_API_URL = '/api/itunes/search?term=movies'
 
 // Create context for managing movie data globally
 const MoviesContext = createContext()

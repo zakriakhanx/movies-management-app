@@ -8,7 +8,7 @@ const MovieCard = ({ trackId, trackName, artwork, genre }) => {
   
   //Original image is 100x100, we are updating it to 500x500
   function updateImageUrl(url) {
-    return url.replace(/\/\d+x\d+bb\.jpg$/, '/500x500bb.jpg');
+    return url.replace(/\/\d+x\d+bb\.jpg$/, '/400x400bb.jpg');
   }
   const artwork_url = updateImageUrl(artwork);
 
@@ -23,8 +23,9 @@ const MovieCard = ({ trackId, trackName, artwork, genre }) => {
         <Image
           src={artwork_url}
           alt={trackName}
-          width={500}
-          height={500}
+          width={400}
+          height={400}
+          priority={true}
           className='w-full' />
 
         {/* Display the genre of the movie below the artwork */}
