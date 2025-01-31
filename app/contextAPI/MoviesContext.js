@@ -2,9 +2,6 @@
 import { createContext, useContext, useState, useCallback, useEffect } from "react"
 import axios from "axios"
 
-// API endpoint for fetching movie data from iTunes
-const MOVIES_API_URL = '/api/itunes/search?term=movie'
-
 // Create context for managing movie data globally
 const MoviesContext = createContext()
 
@@ -26,7 +23,7 @@ export const MoviesProvider = ({ children }) => {
       const controller = new AbortController()
       
       // Make the API call with timeout and cancellation support
-      const response = await axios.get(MOVIES_API_URL, {
+      const response = await axios.get('/api/itunes/search?term=movies', {
         signal: controller.signal,  // For request cancellation
         timeout: 5000  // Request will timeout after 5 seconds
       })
