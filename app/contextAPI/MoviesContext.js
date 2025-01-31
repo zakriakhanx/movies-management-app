@@ -23,7 +23,7 @@ export const MoviesProvider = ({ children }) => {
       const controller = new AbortController()
       
       // Make the API call with timeout and cancellation support
-      const response = await axios.get('/api/itunes/search?term=movies', {
+      const response = await axios.get('/api/itunes/search?term=movies&media=movie', {
         signal: controller.signal,  // For request cancellation
         timeout: 5000  // Request will timeout after 5 seconds
       })
